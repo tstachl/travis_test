@@ -1,0 +1,31 @@
+{
+  "name": "travis_test",
+  "preferGlobal": false,
+  "version": "0.0.1",
+  "author": "Thomas Stachl <thomas@stachl.me>",
+  "description": "Demo package to test Travis CI and Coveralls.io.",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -R spec",
+    "watch": "./node_modules/.bin/mocha -R dot -u bdd -w -G --check-leaks",
+    "coveralls": "NODE_ENV=test YOURPACKAGE_COVERAGE=1 ./node_modules/.bin/mocha -r blanket -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js",
+    "blanket": {
+      "pattern": "travis_test/lib"
+    }
+  },
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tstachl/travis_test.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~1.12.0",
+    "blanket": "~1.1.5",
+    "coveralls": "~2.1.0",
+    "mocha-lcov-reporter": "0.0.1"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
